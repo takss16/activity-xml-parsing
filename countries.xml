@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<countries>
+    <country>
+      <Name>United States</Name>
+      <population>331,449,281</population>
+      <government>United States Congress</government>
+      <time-zone>
+          <name>Eastern Standard Time</name>
+          <offset>-5</offset>
+          <name>Eastern Daylight Time</name>
+          <offset>-4</offset>
+      </time-zone>
+    </country>
+
+    <country>
+      <Name>Japan</Name>
+      <population>331,449,281</population>
+      <government>United States Congress</government>
+      <time-zone>
+          <name>Eastern Time</name>
+          <offset>-6</offset>
+          <name>Eastern Daylight Time</name>
+          <offset>-4</offset>
+      </time-zone>
+    </country>
+
+    <country>
+      <Name>Canada</Name>
+      <population>38,048,738</population>
+      <government>federal parliamentary constitutional monarchy</government>
+      <time-zone>
+          <name>Eastern Standard Time</name>
+          <offset>-5</offset>
+          <name>Eastern Daylight Time</name>
+          <offset>-4</offset>
+      </time-zone>
+    </country>
+    <country>
+        <Name>Brazil</Name>
+        <population>213,993,437</population>
+        <government>National Congress of Brazil</government>
+        <time-zone>
+            <name>Brasília Standard Time</name>
+            <offset>-3</offset>
+            <name>Brasília Standard Time</name>
+            <offset>-3</offset>
+        </time-zone>
+      </country>
+
+</countries>

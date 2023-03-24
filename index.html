@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Countries:</h2>
+
+    <button type="button" onclick="loadXMLDoc()">
+        Countries</button>
+
+    <table id="demo" border="1" cellspacing="0" cellpadding="10" width="80%" align="center"">
+    </table>
+
+<script>
+    function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    createTable(this);
+                }
+            };
+            xmlhttp.open("GET", "countries.xml", true);
+            xmlhttp.send();
+            
+        }
+        function createTable(xml) {
+            var i, xmlDoc, txt;
+            
+            // Actual XML File Object mode
+            xmlDoc = xml.responseXML; 
+
+            txt = `
+            <tr>
+                    <th>Name</th>
+                    <th>Population</th>
+                    <th>government</th>
+                    <th>time-zone</th>
+                </tr>
+            `;
+
+            var name = xmlDoc.getElementsByTagName("Name");
+            var population = xmlDoc.getElementsByTagName("population");
+            var government = xmlDoc.getElementsByTagName("government");
+            var timezone = xmlDoc.getElementsByTagName("time-zone");
+
+            
+            for (i = 0; i< name.length; i++) {
+                txt += `
+                <tr>
+                        <td>${name[i].childNodes[0].nodeValue}</td>
+                        <td>${population[i].childNodes[0].nodeValue}</td>
+                        <td>${government[i].childNodes[0].nodeValue}</td>
+                        <td>
+                            <ul>`;
+                                var list = "";
+                                for(j = 0; j < timezone.length;j++){
+                                    list += `<li>${timezone[i].children[j].childNodes[0].nodeValue}</li>`;
+                                }
+
+                txt +=`
+                                ${list}
+                            </ul>
+                        </td>
+                    </tr>
+                `;                
+            }
+
+            document.getElementById("demo").innerHTML = txt;
+        }
+</script>
+</body>
+</html>
